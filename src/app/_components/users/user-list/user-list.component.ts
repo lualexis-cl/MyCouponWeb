@@ -36,6 +36,7 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.subscription = this.genericService.getList(this.dbPathUserApplication)
       .subscribe(result => {
         this.users = result as UserApplicationInfo[];
+        this.users = this.users.reverse();
         this.collectionSize = this.users.length;
 
         this.dialog.closeLoading();
